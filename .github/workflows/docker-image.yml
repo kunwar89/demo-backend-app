@@ -20,6 +20,7 @@ jobs:
       run: docker build -t back .
     - name: Push
       run: |
-          docker push back:latest
+          docker tag back:latest ${{ secrets.ARTIFACTORY_URL }/demo-local-docker-repo/demo-backend-app
+          docker push ${{ secrets.ARTIFACTORY_URL }/demo-local-docker-repo/demo-backend-app
       
 
