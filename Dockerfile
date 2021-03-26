@@ -1,6 +1,7 @@
 FROM gradle:6.8.2-jdk15 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
+LABEL "Jira"="HAR-3"
 RUN gradle build --no-daemon 
 
 FROM adoptopenjdk:15.0.2_7-jre-openj9-0.24.0
